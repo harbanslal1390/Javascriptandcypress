@@ -9,11 +9,11 @@ describe('template spec', () => {
     cy.mailosaurGetMessage("nkdnpdlo", {
       sentTo: "anything009@nkdnpdlo.mailosaur.net",
       timeout: 60000,
-    }).then((email) => {
+    }).then((email) => { 
       cy.log(email.subject);
       var code=email.subject
-      console.log("================++++++++++++++++++++++++++++==========="+code)
-      const numericCode = code.match(/\d+/); // This regex extracts the first numeric sequence
+      console.log("================++++++++++++++++++++++++++++=========== "+code)
+      const numericCode = code.match(/\d+/); // This regex extracts the first numeric sequencde
   
   if (numericCode) {
     const code = numericCode[0]; // Get the first match
