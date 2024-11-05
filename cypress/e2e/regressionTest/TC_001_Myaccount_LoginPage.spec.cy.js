@@ -8,6 +8,7 @@ describe('template spec', () => {
     cy.get('.MuiTypography-root.MuiTypography-headingSm.MuiTypography-gutterBottom.css-zk2zf9').should('have.text',"Sign in or create an account")
     cy.mailosaurGetMessage("nkdnpdlo", {
       sentTo: "anything009@nkdnpdlo.mailosaur.net",
+      timeout: 60000,
     }).then((email) => {
       cy.log(email.subject);
       var code=email.subject
@@ -58,7 +59,9 @@ describe('template spec', () => {
   } else {
     cy.log('No numeric code found in the subject.');
   }
-  cy.visit("https://stg-account.flightcentre.com.au/")
+  cy.get("#mui-1").type("AuStageFirstName")
+  cy.get("#mui-2").type("AUStageLastName")
+  cy.get("button[type='submit']").click()
     });
   })
 })
